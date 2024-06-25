@@ -7,11 +7,11 @@
 
 
 ## Set Up Board Cucumber RS
-> 1.ดาวน์โหลดและติดตั้ง Arduino IDE
-2.ติดตั้ง Arduino Core for ESP32 โดยเปิดเมนู File > Preferences แล้วกรอก URL ลงในช่อง Additional Board Manager URLs
-https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
-3.ติดตั้ง ESP32 โดยเลือกเมนู Tools > Board > Boards Manager จากนั้นค้น esp32 แล้วติดตั้ง
-4.ติดตั้งไดรเวอร์ FTDI แล้วเสียบบอร์ด Cucumber RS กับคอมพิวเตอร์
+ 1.ดาวน์โหลดและติดตั้ง Arduino IDE
+ 2.ติดตั้ง Arduino Core for ESP32 โดยเปิดเมนู File > Preferences แล้วกรอก URL ลงในช่อง Additional Board Manager URLs
+ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+ 3.ติดตั้ง ESP32 โดยเลือกเมนู Tools > Board > Boards Manager จากนั้นค้น esp32 แล้วติดตั้ง
+ 4.ติดตั้งไดรเวอร์ FTDI แล้วเสียบบอร์ด Cucumber RS กับคอมพิวเตอร์
 
 ## ESP32
 > 19/06/2567: เขียน Arduino อ่านค่า Sensor จาก Board Cucumber RS (HTS221,BMP280,MPU6050 และ LDR)
