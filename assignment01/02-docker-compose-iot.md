@@ -37,8 +37,19 @@ docker compose logs -f
 ```
 
 ## Error we found
+Error ที่พวกผมได้เจอนั้นมี 4 ปัญหาของ แต่ละ Container ดังนี้
+* Zookeeper Navigator error
+* Mongo error
+* Mosquitto error
+* IOT processor error
 
-## How to solve the problems?
+## How to solve the problems.
+* Zookeeper Navigator นั้นมีปัญหาโดยไม่สามารถดึง Image ได้ โดยมีวิธีการแก้ปัญหาในตอนนี้คือ Comment ในส่วนนี้เอาไว้ก่อน
+* Mongo มีปัญหาที่ version ของ Mongo นั้นมี version ที่สูงเกินไป โดยเราได้ทำการ Drop version ของ Mongo ลงมา 1 version โดยแก้ตรงไฟล์ Docker-compose ที่ Container Mongo หัวข้อ Image จาก version ล่าสุด เป็น version 4.6.6
+* Mosquitto มีปัญหาที่การเข้าถึงนั้น เราไม่สามารถ เชื่อมต่อได้เนื่องจากไม่มีไฟล์สำหรับการ Config Mosquitto จึงต้องทำการสร้างไฟล์ config โดยการ copy ไฟล์ ที่มีอยู่ใน Container path โดยใช้คำสั่ง จากนั้นแก้ไฟล์โดยให้บุคคลใดก็ได้สามารถเข้าถึงได้
+```bash
+docker cp CONTAINER_Name:Container_path local_disk
+```
 
 ## Output
 
