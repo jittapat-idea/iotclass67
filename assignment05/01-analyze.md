@@ -1,5 +1,7 @@
 # Analyze and make aggregations.
 
+## อะไรคือการทำ Analyze และ Aggregations ?
+
 ## <mark>อะไรคือการทำ Analyze และ Aggregations ?
 
 การวิเคราะห์และการทำการรวมข้อมูล (Analyze and Make Aggregations): ขั้นตอนที่สำคัญในการทำให้ข้อมูลที่ได้จากเซ็นเซอร์เป็นประโยชน์และใช้งานได้ง่ายขึ้น โดยการสรุปข้อมูลที่ได้ในช่วงเวลาต่างๆ เพื่อนำเสนอข้อมูลสถิติหรือข้อมูลเชิงลึก เช่น ค่าเฉลี่ย ค่าสูงสุด หรือต่ำสุด ของอุณหภูมิ ความชื้น แสงสว่าง ฯลฯ ในช่วงเวลาที่กำหนด
@@ -85,7 +87,15 @@ public class KafkaStreamsConfig {
 }
 ```
 
+<<<<<<< HEAD
+
 ## <mark>First processor "Aggregate Metrics By Sensor Processor"
+
+=======
+
+## First processor "Aggregate Metrics By Sensor Processor"
+
+> > > > > > > 4c6e620 (update readme assignment 5)
 
 ตัวประมวลผลตัวแรกจะทำการรวมข้อมูลตาม sensor id โดยใช้ rotating time window ที่มีช่วงเวลา 5 นาที
 
@@ -93,8 +103,11 @@ public class KafkaStreamsConfig {
 
 ตัวประมวลผลจะสร้างโมเดลข้อมูลใหม่ที่มีโครงสร้าง (schema) ต่างจากเดิม ซึ่งจำเป็นต้องตั้งค่า SerDe (Serializer/Deserializer) ให้เหมาะสมเพื่อใช้ในการ serialize และ deserialize ข้อมูลใน Kafka
 
-ผลลัพธ์: เมื่อหน้าต่างเวลาถูกปิด ตัวประมวลผลจะสร้างเรคคอร์ดที่ประกอบด้วยข้อมูลการรวมประมาณ 300 รายการต่อเซ็นเซอร์ และบันทึกค่าเฉลี่ยที่คำนวณได้
-ผลลัพธ์จะถูกบันทึกลงใน Kafka topic ที่ชื่อ iot-aggregate-metrics-by-sensor
+# <<<<<<< HEAD
+
+> > > > > > > 4c6e620 (update readme assignment 5)
+> > > > > > > ผลลัพธ์: เมื่อหน้าต่างเวลาถูกปิด ตัวประมวลผลจะสร้างเรคคอร์ดที่ประกอบด้วยข้อมูลการรวมประมาณ 300 รายการต่อเซ็นเซอร์ และบันทึกค่าเฉลี่ยที่คำนวณได้
+> > > > > > > ผลลัพธ์จะถูกบันทึกลงใน Kafka topic ที่ชื่อ iot-aggregate-metrics-by-sensor
 
 ```java
 @Component
@@ -195,12 +208,22 @@ public class AggregateMetricsBySensorProcessor {
 }
 ```
 
+<<<<<<< HEAD
+
 ## <mark>Second processor "Aggregate Metrics By Place Processor"
 
 ตัวประมวลผลตัวที่สองจะทำงานคล้ายกับตัวแรก แต่จะทำการรวมข้อมูลตาม place identifier แทนที่จะเป็น sensor id
 
+# โดยมีวัตถุประสงค์:
+
+## Second processor "Aggregate Metrics By Place Processor"
+
+ตัวประมวลผลตัวที่สองจะทำงานคล้ายกับตัวแรก แต่จะทำการรวมข้อมูลตาม place identifier แทนที่จะเป็น sensor id
+
 โดยมีวัตถุประสงค์:
-เพื่อคำนวณค่าเฉลี่ยตามสถานที่ (place) โดยการรวมข้อมูลจากเซ็นเซอร์หลายตัวที่อยู่ในสถานที่เดียวกัน
+
+> > > > > > > 4c6e620 (update readme assignment 5)
+> > > > > > > เพื่อคำนวณค่าเฉลี่ยตามสถานที่ (place) โดยการรวมข้อมูลจากเซ็นเซอร์หลายตัวที่อยู่ในสถานที่เดียวกัน
 
 เช่นเดียวกับตัวประมวลผลแรก จะต้องตั้งค่า SerDe ให้เหมาะสมเพื่อรองรับ schema ที่แตกต่างกัน
 
@@ -301,12 +324,22 @@ public class AggregateMetricsByPlaceProcessor {
 }
 ```
 
+<<<<<<< HEAD
+
 ## <mark>Third processor "Metrics Time Series Processor"
 
 ตัวประมวลผลตัวที่สามมีหน้าที่ในการแปลงข้อมูลให้อยู่ในรูปแบบที่เข้ากันได้กับ Prometheus ซึ่งเป็นระบบเก็บข้อมูลเมตริกที่นิยมใช้ในงานตรวจสอบระบบ
 
+# โดยมีวัตถุประสงค์:
+
+## Third processor "Metrics Time Series Processor"
+
+ตัวประมวลผลตัวที่สามมีหน้าที่ในการแปลงข้อมูลให้อยู่ในรูปแบบที่เข้ากันได้กับ Prometheus ซึ่งเป็นระบบเก็บข้อมูลเมตริกที่นิยมใช้ในงานตรวจสอบระบบ
+
 โดยมีวัตถุประสงค์:
-เปลี่ยนข้อมูลเป็น schema ที่เข้ากับ Prometheus โดยใช้ชื่อ, sensor id, และ place identifier เป็นมิติ (dimension) ของข้อมูล และใช้ payload เป็นค่าที่สามารถแสดงผลในรูปแบบ time series บน Grafana ได้
+
+> > > > > > > 4c6e620 (update readme assignment 5)
+> > > > > > > เปลี่ยนข้อมูลเป็น schema ที่เข้ากับ Prometheus โดยใช้ชื่อ, sensor id, และ place identifier เป็นมิติ (dimension) ของข้อมูล และใช้ payload เป็นค่าที่สามารถแสดงผลในรูปแบบ time series บน Grafana ได้
 
 ข้อมูลนี้จะถูกบันทึกลงใน Kafka topic ที่ชื่อ iot-metrics-time-series ซึ่ง Prometheus จะเข้ามาดึงข้อมูลจาก topic นี้เพื่อนำไปแสดงผลเป็นเมตริก
 
@@ -363,6 +396,14 @@ public class MetricsTimeSeriesProcessor {
 }
 ```
 
+<<<<<<< HEAD
+
 ## <mark>ความสำคัญของ SerDe
 
+# การใช้ SerDe (Serializer/Deserializer) เป็นสิ่งสำคัญ เนื่องจากข้อมูลที่สร้างขึ้นและประมวลผลต้องถูกแปลงให้อยู่ในรูปแบบที่ Kafka สามารถจัดเก็บและส่งต่อได้ และยังต้องสามารถนำข้อมูลนี้ไปใช้ในส่วนที่ต้องการได้อย่างถูกต้องอีกด้วย
+
+## ความสำคัญของ SerDe
+
 การใช้ SerDe (Serializer/Deserializer) เป็นสิ่งสำคัญ เนื่องจากข้อมูลที่สร้างขึ้นและประมวลผลต้องถูกแปลงให้อยู่ในรูปแบบที่ Kafka สามารถจัดเก็บและส่งต่อได้ และยังต้องสามารถนำข้อมูลนี้ไปใช้ในส่วนที่ต้องการได้อย่างถูกต้องอีกด้วย
+
+> > > > > > > 4c6e620 (update readme assignment 5)
