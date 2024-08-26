@@ -1,17 +1,18 @@
 # iotclass67
+
 Internet of things Class 2567
 
 # Table of Contents
 
-- [ ] Main technologies of architectures https://gibhub.com
-- [ ] Setting up servers and components. https://gibhub.com
-- [ ] Compose services. https://gibhub.com
-- [ ] Ingest and store real-time data from IoT sensors. https://gibhub.com
-- [ ] Analyze and make aggregations. https://gibhub.com
-- [ ] Store data. https://gibhub.com
-- [ ] Data Visualization.  https://gibhub.com
-- [ ] Used technologies. https://gibhub.com
-
+- [ ] [Main technologies of architectures](https://github.com/jittapat-idea/iotclass67/blob/main/assignment00/architecture.md)
+- [ ] [Setting up servers and components.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment01/01-install-server.md)
+- [ ] [Compose services.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment01/02-docker-compose-iot.md)
+- [ ] [MQTT.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment03/01-ingest.md)
+- [ ] [Ingest and store real-time data from IoT sensors.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment04/01-iot-sensor.md)
+- [ ] [Analyze and make aggregations.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment05/01-analyze.md)
+- [ ] [Store data.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment06/01-storedata.md)
+- [ ] [Data Visualization.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment07/01-visualization.md)
+- [ ] [Used technologies.](https://github.com/jittapat-idea/iotclass67/blob/main/assignment08/01-used-technology.md)
 
 Iot Event Streaming Architecture.[^1]
 GitHub format syntax[^2].
