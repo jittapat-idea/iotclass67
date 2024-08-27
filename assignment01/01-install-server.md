@@ -12,6 +12,7 @@
 
 
 ## How to install Docker
+1. ทำการ SetUp Repository สำหรับ Docker
 ```bash
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -28,5 +29,22 @@ echo \
 sudo apt-get update
 ```
 
+2. Dowload Docker Packages
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
 
+3. จัดการ Docker โดยไม่ต้องเป็น root user
+* สร้าง Group
+```bash
+sudo groupadd docker
+```
+* add user เข้า Group
+```bash
+sudo usermod -aG docker $USER
+```
+* Activate group
+```bash
+newgrp docker
+```
 
