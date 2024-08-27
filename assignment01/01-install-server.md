@@ -29,26 +29,6 @@ echo \
 sudo apt-get update
 ```
 
-<<<<<<< HEAD
-2. Dowload Docker Packages
-```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-3. จัดการ Docker โดยไม่ต้องเป็น root user
-* สร้าง Group
-```bash
-sudo groupadd docker
-```
-* add user เข้า Group
-```bash
-sudo usermod -aG docker $USER
-```
-* Activate group
-```bash
-newgrp docker
-```
-=======
 ```bash
 # Install the Docker packages:
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -78,5 +58,4 @@ newgrp docker
 #Verify that you can run docker commands without sudo.
 docker run hello-world
 ```
->>>>>>> e5e21b97b5de0f55f505a1987f692d6b7e7a713b
 
