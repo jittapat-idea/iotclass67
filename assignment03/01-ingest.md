@@ -1,5 +1,7 @@
 # MQTT
-## payload
+
+### Payload
+
 ```java
 {
   "id": "43245253",
@@ -16,12 +18,13 @@
 }
 ```
 
-## 1.การส่งข้อมูลจากเซ็นเซอร์ IoT ไปยัง MQTT Broker
+## <mark>การส่งข้อมูลจากเซ็นเซอร์ IoT ไปยัง MQTT Broker
+
 > การจำลองเซ็นเซอร์ IoT
 
->> - เซ็นเซอร์ IoT ถูกจำลองด้วยไมโครเซอร์วิสที่พัฒนาด้วย Spring Boot
->> - ไมโครเซอร์วิสเหล่านี้ใช้ Eclipse Paho MQTT Library เพื่อส่งข้อมูลเทเลเมทรี (เช่น อุณหภูมิ, ความชื้น, ความดัน, และความสว่าง) ไปยัง MQTT broker ชื่อว่า Eclipse Mosquitto
->> - ข้อมูลจะถูกสร้างขึ้นทุกวินาที โดย Callable จะสร้าง payload ของข้อมูลเซ็นเซอร์จำลอง ทำการ serialize เป็น JSON และส่งไปยัง MQTT topic ผ่านไคลเอนต์ MQTT
+> > - เซ็นเซอร์ IoT ถูกจำลองด้วยไมโครเซอร์วิสที่พัฒนาด้วย Spring Boot
+> > - ไมโครเซอร์วิสเหล่านี้ใช้ Eclipse Paho MQTT Library เพื่อส่งข้อมูลเทเลเมทรี (เช่น อุณหภูมิ, ความชื้น, ความดัน, และความสว่าง) ไปยัง MQTT broker ชื่อว่า Eclipse Mosquitto
+> > - ข้อมูลจะถูกสร้างขึ้นทุกวินาที โดย Callable จะสร้าง payload ของข้อมูลเซ็นเซอร์จำลอง ทำการ serialize เป็น JSON และส่งไปยัง MQTT topic ผ่านไคลเอนต์ MQTT
 
 ```java
 @Component
@@ -106,20 +109,26 @@ public class IoTSensor implements Callable<Void> {
 }
 ```
 
-## 2. การเชื่อมต่อระหว่าง MQTT Broker กับ Kafka
-> MQTT Broker (Eclipse Mosquitto)
+## <mark>การเชื่อมต่อระหว่าง MQTT Broker กับ Kafka
 
->> - Mosquitto ทำหน้าที่เป็น MQTT broker รับข้อมูลจากเซ็นเซอร์ IoT ที่ส่งมาผ่าน MQTT client
->> - ข้อมูลที่ได้รับจะถูกส่งต่อไปยัง Kafka ผ่าน Kafka Connect โดยใช้ MQTT source connector ที่ถูกตั้งค่าให้รับข้อมูลจาก Mosquitto และส่งต่อไปยัง Kafka topic ที่ชื่อ "iot-frames"
+MQTT Broker (Eclipse Mosquitto)
 
-> Kafka Connect Configuration
+- Mosquitto ทำหน้าที่เป็น MQTT broker รับข้อมูลจากเซ็นเซอร์ IoT ที่ส่งมาผ่าน MQTT client
+- ข้อมูลที่ได้รับจะถูกส่งต่อไปยัง Kafka ผ่าน Kafka Connect โดยใช้ MQTT source connector ที่ถูกตั้งค่าให้รับข้อมูลจาก Mosquitto และส่งต่อไปยัง Kafka topic ที่ชื่อ "iot-frames"
 
->> - Kafka Connect ทำหน้าที่เป็นสะพานเชื่อมระหว่าง Mosquitto กับ Kafka
->> - MQTT source connector ถูกตั้งค่าให้สมัครรับข้อมูลจาก MQTT topics และส่งข้อมูลไปยัง Kafka topic โดยใช้ตัวระบุเซ็นเซอร์ (sensor ID) เป็นคีย์ของข้อมูลใน Kafka
->> - MQTT source connector ยังใช้ค่าการตั้งค่า เช่น:
->>> -  mqtt.topics: ระบุ MQTT topic ที่ connector จะสมัครรับข้อมูล
->>> - kafka.topic: ระบุ Kafka topic ที่จะเก็บข้อมูล
->>> - mqtt.qos: ระดับ QoS ของ MQTT ที่จะใช้ในการสมัครรับข้อมูล
+Kafka Connect Configuration
 
-## สรุป
+- Kafka Connect ทำหน้าที่เป็นสะพานเชื่อมระหว่าง Mosquitto กับ Kafka
+- MQTT source connector ถูกตั้งค่าให้สมัครรับข้อมูลจาก MQTT topics และส่งข้อมูลไปยัง Kafka topic โดยใช้ตัวระบุเซ็นเซอร์ (sensor ID) เป็นคีย์ของข้อมูลใน Kafka
+- MQTT source connector ยังใช้ค่าการตั้งค่า เช่น:
+- mqtt.topics: ระบุ MQTT topic ที่ connector จะสมัครรับข้อมูล
+- kafka.topic: ระบุ Kafka topic ที่จะเก็บข้อมูล
+- mqtt.qos: ระดับ QoS ของ MQTT ที่จะใช้ในการสมัครรับข้อมูล
+
+## <mark>การเพิ่ม security ในการใช้งาน MQTT
+
+โดยปกติแล้วการส่งข้อมูลของ client บน MQTT สามารถส่งได้เลยผ่านการ subscribe topic ที่ต้องการ แต่หากต้องการเพิ่ม security สามารถทำได้โดยการเพิ่ม authentication ให้ client เพื่อให้ client ต้องกรอก username และ password ให้ถูกต้องก่อน ถึงจะสามารถส่งข้อมูลได้ ซึ่งการสร้าง username และ password นั้น สามารถสร้างได้ที่ broker ที่จะกำหนดได้เลยว่า username และ password ที่สามารถเข้ามาเชื่อมต่อส่งข้อมูล มีอะไรบ้าง ทำให้การส่งข้อมูลบน MQTT มีความ security มากขึ้น
+
+## <mark>สรุป
+
 MQTT เป็นโปรโตคอลที่ใช้สำหรับการสื่อสารข้อมูลแบบเบาและรวดเร็วในระบบ IoT โดยในโปรเจกต์นี้ เซ็นเซอร์ IoT จะส่งข้อมูลเทเลเมทรีไปยัง Eclipse Mosquitto ซึ่งทำหน้าที่เป็น MQTT broker จากนั้น Kafka Connect ที่ใช้ MQTT source connector จะรับข้อมูลจาก Mosquitto และส่งต่อไปยัง Kafka เพื่อจัดเก็บและประมวลผลต่อไป.
