@@ -234,6 +234,3 @@ docker compose restart grafana
 </br>
 
 ## <mark>สรุปภาพรวม</mark>
-
-![plan-finish](./assets/plan-finish.png)
-</br>
