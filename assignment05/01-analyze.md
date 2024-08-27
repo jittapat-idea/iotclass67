@@ -12,7 +12,7 @@
 
 การตั้งค่าการใช้งาน Kafka Streams เพื่อรองรับการประมวลผลข้อมูลจากเซ็นเซอร์โดยใช้บริการที่ชื่อว่า KafkaStreamsConfig ซึ่งมีหน้าที่หลักในการจัดการการไหลของข้อมูล (data stream) ที่มาจาก Kafka topic และใช้โปรเซสเซอร์ต่าง ๆ ในการประมวลผลข้อมูลเหล่านั้น
 
-บริการ iot-processor ซึ่งมีตัวประมวลผลสามตัวได้แก่
+iot-processor มีตัวประมวลผลสามตัวได้แก่
 
 1. Aggregate Metrics By Sensor Processor
 2. Aggregate Metrics By Place Processor
