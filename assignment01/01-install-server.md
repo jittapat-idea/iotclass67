@@ -12,7 +12,7 @@
 
 
 ## How to install Docker
-1. ทำการ SetUp Repository สำหรับ Docker
+> ขั้นตอนการตั้งค่า Docker repository เพื่อที่จะติดตั้ง Docker Engin ใน เครื่อง Host ใหม่
 ```bash
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -29,6 +29,7 @@ echo \
 sudo apt-get update
 ```
 
+<<<<<<< HEAD
 2. Dowload Docker Packages
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -47,4 +48,35 @@ sudo usermod -aG docker $USER
 ```bash
 newgrp docker
 ```
+=======
+```bash
+# Install the Docker packages:
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+```bash
+# Verify that the Docker Engine installation is successful by running the hello-world image
+sudo docker run hello-world
+```
+
+## Manage Docker as a non-root user
+> ขั้นตอนการตั้งค่า Unix group เพื่อให้สามารถรันคำสั่งใน docker โดยไม่ต้องนำหน้าด้วย "sudo"
+
+```bash
+#Create the docker group.
+sudo groupadd docker
+```
+```bash
+#Add your user to the docker group.
+sudo usermod -aG docker $USER
+```
+```bash
+#run the following command to activate the changes to groups:
+newgrp docker
+```
+```bash
+#Verify that you can run docker commands without sudo.
+docker run hello-world
+```
+>>>>>>> e5e21b97b5de0f55f505a1987f692d6b7e7a713b
 
