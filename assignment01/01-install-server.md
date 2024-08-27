@@ -12,7 +12,7 @@
 
 
 ## How to install Docker
-> ขั้นตอนการตั้งค่า Docker repository เพื่อที่จะติดตั้ง Docker Engin ใน เครื่อง Host ใหม่
+- ขั้นตอนการตั้งค่า Docker repository เพื่อที่จะติดตั้ง Docker Engine ใน เครื่อง Host ใหม่
 ```bash
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -40,7 +40,7 @@ sudo docker run hello-world
 ```
 
 ## Manage Docker as a non-root user
-> ขั้นตอนการตั้งค่า Unix group เพื่อให้สามารถรันคำสั่งใน docker โดยไม่ต้องนำหน้าด้วย "sudo"
+- ขั้นตอนการตั้งค่า Unix group เพื่อให้สามารถรันคำสั่งใน docker โดยไม่ต้องนำหน้าด้วย "sudo"
 
 ```bash
 #Create the docker group.
