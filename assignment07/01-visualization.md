@@ -235,5 +235,23 @@ docker compose restart grafana
 
 ## <mark>สรุปภาพรวม</mark>
 
-![plan-finish](./assets/plan-finish.png)
+![floorplan](./assets/floorplan.png)
+</br>
+
+![humidity](./assets/humidity.png)
+</br>
+
+![temp](./assets/temp.png)
+</br>
+
+![temp time](./assets/temp-timeseries.png)
+</br>
+
+![light](./assets/light.png)
+</br>
+
+![pressure](./assets/pressure.png)
+</br>
+
+![overall](./assets/overall.png)
 </br>
