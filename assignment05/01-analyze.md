@@ -201,12 +201,6 @@ public class AggregateMetricsBySensorProcessor {
 
 ตัวประมวลผลตัวที่สองจะทำงานคล้ายกับตัวแรก แต่จะทำการรวมข้อมูลตาม place identifier แทนที่จะเป็น sensor id
 
-# โดยมีวัตถุประสงค์:
-
-## <mark>Second processor "Aggregate Metrics By Place Processor"
-
-ตัวประมวลผลตัวที่สองจะทำงานคล้ายกับตัวแรก แต่จะทำการรวมข้อมูลตาม place identifier แทนที่จะเป็น sensor id
-
 โดยมีวัตถุประสงค์:
 
 เพื่อคำนวณค่าเฉลี่ยตามสถานที่ (place) โดยการรวมข้อมูลจากเซ็นเซอร์หลายตัวที่อยู่ในสถานที่เดียวกัน
@@ -309,13 +303,6 @@ public class AggregateMetricsByPlaceProcessor {
 
 }
 ```
-
-## Third processor "Metrics Time Series Processor"
-
-ตัวประมวลผลตัวที่สามมีหน้าที่ในการแปลงข้อมูลให้อยู่ในรูปแบบที่เข้ากันได้กับ Prometheus ซึ่งเป็นระบบเก็บข้อมูลเมตริกที่นิยมใช้ในงานตรวจสอบระบบ
-
-# โดยมีวัตถุประสงค์:
-
 ## <mark>Third processor "Metrics Time Series Processor"
 
 ตัวประมวลผลตัวที่สามมีหน้าที่ในการแปลงข้อมูลให้อยู่ในรูปแบบที่เข้ากันได้กับ Prometheus ซึ่งเป็นระบบเก็บข้อมูลเมตริกที่นิยมใช้ในงานตรวจสอบระบบ
