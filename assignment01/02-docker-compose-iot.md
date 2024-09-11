@@ -321,17 +321,27 @@ sh start_0zookeeper_kafka.sh
 * [zookeeper](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#apache-zookeeper) 
 * [kafka](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#apache-kafka)
 
+เมื่อ Run Script แล้วให้ทำการรอจนกว่า logs จะนิ่ง (Terminal ไม่วิ่ง) แล้วค่อยเริ่ม Run Script start-service #1
+
 ## start-service #1
 >> อธิบายว่า  หน้าจอที่ 1 ที่ต้องเปิดใช้งาน มีการเปิด service อะไรบ้างใน docker
 ```bash
 sh start_1kafka_service.sh
 ```
 ### โดย start-service #1 นั้นมี Service ดังนี้
-* [kafka-rest-proxy]()
+* [kafka-rest-proxy](https://github.com/jittapat-idea/iotclass67/blob/main/assignment00/architecture.md#apache-kafka-rest-proxy)
 * [kafka-connect](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#apache-kafka-connect) 
 * [mongo](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#mongodb) 
 * [grafana](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#grafana) 
 * [prometheus](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#prometheus)
+
+เมื่อ Run Script start-service #1 ได้แล้วจะต้องรอจนกว่าเมื่อขึ้นข้อความเพียงดังข้อความด้านล่างเพียงอย่างเดียว
+```
+kafka-connect     | Wed Sep 11 09:18:25 UTC 2024  Kafka Connect listener HTTP state:  000  (waiting for 200)
+```
+### โดย start-service #0 นั้นมี Service ดังนี้
+* [zookeeper](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#apache-zookeeper) 
+* [kafka](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#apache-kafka)
 
 ## start-service #2
 >> อธิบายว่า  หน้าจอที่ 1 ที่ต้องเปิดใช้งาน มีการเปิด service อะไรบ้างใน docker
@@ -339,8 +349,9 @@ sh start_1kafka_service.sh
 sh start_2iot_processor.sh
 ```
 ### โดย start-service #2 นั้นมี Service ดังนี้
-* iot-processor
+* [iot-processor](https://github.com/jittapat-idea/iotclass67/blob/main/assignment00/architecture.md#apache-kafka-streams-iot-processor)
 
+เมื่อ Run Script start-service #2 จะสังเกตุได้ว่า iot-processor สามารถทำงานได้โดยไม่มีปัญหาจะดูได้จาก iot-processor initialize complete และต้องไม่มีการ Fail หรือ Shutdown Complete ถ้ามีการ Fail ให้ทำการ restart iot-processor เรื่อยๆ จนกว่าจะไม่มี Fail และ Shutdown Complete
 
 ## start-service #3
 >> อธิบายว่า  หน้าจอที่ 1 ที่ต้องเปิดใช้งาน มีการเปิด service อะไรบ้างใน docker
@@ -348,4 +359,6 @@ sh start_2iot_processor.sh
 sh start_3iot_sensor.sh
 ```
 ### โดย start-service #3 นั้นมี Service ดังนี้
-* iot_sensor_1
+* [iot_sensor_1](https://github.com/jittapat-idea/iotclass67/blob/main/assignment00/architecture.md#iot-sensor)
+
+เป็น Script สุดท้ายในการ Run เพื่อแสดงค่า Sensor ที่สุ่มค่ามาจาก Spring Boot แต่ถ้าใน Grafana ไม่ขึ้นค่าจะต้อง Restart container iot-processor เรื่อยๆ
