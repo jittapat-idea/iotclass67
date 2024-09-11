@@ -1,6 +1,5 @@
 # Analyze and make aggregations.
-
-## <mark>อะไรคือการทำ Analyze และ Aggregations ?
+>> อธิบาย ส่วนวิเคราห์ข้อมูล สามส่วนนี้ ใช้หลักการอย่างไร ทำแล้วได้อะไร
 
 การวิเคราะห์และการทำการรวมข้อมูล (Analyze and Make Aggregations): ขั้นตอนที่สำคัญในการทำให้ข้อมูลที่ได้จากเซ็นเซอร์เป็นประโยชน์และใช้งานได้ง่ายขึ้น โดยการสรุปข้อมูลที่ได้ในช่วงเวลาต่างๆ เพื่อนำเสนอข้อมูลสถิติหรือข้อมูลเชิงลึก เช่น ค่าเฉลี่ย ค่าสูงสุด หรือต่ำสุด ของอุณหภูมิ ความชื้น แสงสว่าง ฯลฯ ในช่วงเวลาที่กำหนด
 
@@ -85,7 +84,7 @@ public class KafkaStreamsConfig {
 }
 ```
 
-## <mark>First processor "Aggregate Metrics By Sensor Processor"
+## Aggregate Metrics By Sensor Processor
 
 ตัวประมวลผลตัวแรกจะทำการรวมข้อมูลตาม sensor id โดยใช้ rotating time window ที่มีช่วงเวลา 5 นาที
 
@@ -195,7 +194,7 @@ public class AggregateMetricsBySensorProcessor {
 }
 ```
 
-## <mark>Second processor "Aggregate Metrics By Place Processor"
+## Aggregate Metrics By Place Processor
 
 ตัวประมวลผลตัวที่สองจะทำงานคล้ายกับตัวแรก แต่จะทำการรวมข้อมูลตาม place identifier แทนที่จะเป็น sensor id
 
@@ -301,7 +300,7 @@ public class AggregateMetricsByPlaceProcessor {
 }
 ```
 
-## <mark>Third processor "Metrics Time Series Processor"
+## Aggregate Metrics time series
 
 ตัวประมวลผลตัวที่สามมีหน้าที่ในการแปลงข้อมูลให้อยู่ในรูปแบบที่เข้ากันได้กับ Prometheus ซึ่งเป็นระบบเก็บข้อมูลเมตริกที่นิยมใช้ในงานตรวจสอบระบบ
 
