@@ -1,5 +1,17 @@
 # Ingest and store real-time data from IoT sensors.
 
+## software ที่ใช้ได้แก่ 
+
+> MQTT Broker (Eclipse Mosquitto)
+>> - Mosquitto ทำหน้าที่เป็น MQTT broker รับข้อมูลจากเซ็นเซอร์ IoT ที่ส่งมาผ่าน MQTT client
+>> - ข้อมูลที่ได้รับจะถูกส่งต่อไปยัง Kafka ผ่าน Kafka Connect โดยใช้ MQTT source connector ที่ถูกตั้งค่าให้รับข้อมูลจาก Mosquitto และส่งต่อไปยัง Kafka topic ที่ชื่อ "iot-frames"
+
+> Microsoft spring boot
+>> - ใช้จำลองเซ็นเซอร์ IoT ไมโครเซอร์วิสเหล่านี้ใช้ Eclipse Paho MQTT Library เพื่อส่งข้อมูลเทเลเมทรี (เช่น อุณหภูมิ, ความชื้น, ความดัน, และความสว่าง) ไปยัง MQTT broker ชื่อว่า Eclipse Mosquitto
+> > - ข้อมูลจะถูกสร้างขึ้นทุกวินาที โดย Callable จะสร้าง payload ของข้อมูลเซ็นเซอร์จำลอง ทำการ serialize เป็น JSON และส่งไปยัง MQTT topic ผ่านไคลเอนต์ MQTT
+
+
+
 ## MQTT Topic
 
 > MQTT Topic = "iot-frames"
@@ -32,7 +44,7 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 4. ติดตั้งไดรเวอร์ FTDI แล้วเสียบบอร์ด Cucumber RS กับคอมพิวเตอร์
 
 ## Send data to kafka
->1. include library สำหรับเชื่อมต่อกับ MQTT broker และ ส่งข้อมูลเซ็นเซอร์ในรูปแบบ JSON (PubSubClient.h, ArduinoJson.h, WiFi.h)
+1. include library สำหรับเชื่อมต่อกับ MQTT broker และ ส่งข้อมูลเซ็นเซอร์ในรูปแบบ JSON (PubSubClient.h, ArduinoJson.h, WiFi.h)
 2. เชื่อมต่อกับ WiFi ของเราโดยสร้าง function setupWifi()
 3. เชื่อมต่อกับ MQTT broker โดยผ่าน function reconnect()
 4. สร้าง JSON จากข้อมูลเซ็นเซอร์ HTS221, BMP280, MPU6050
@@ -63,7 +75,8 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 
 เวลาและวันที่ที่ได้รับจากเซิร์ฟเวอร์ NTP จะถูกบันทึกลงใน JSON payload ซึ่งจะใช้เป็น timestamp ของข้อมูลเซ็นเซอร์
 
-
+## flow chart
+![flow chart](image/Flowchart_arduino.drawio.png)
 
 ## Code ESP32
 > 19/06/2567: เขียน Arduino อ่านค่า Sensor จาก Board Cucumber RS (HTS221,BMP280,MPU6050 และ LDR)
