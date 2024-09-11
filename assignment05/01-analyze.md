@@ -303,12 +303,7 @@ public class AggregateMetricsByPlaceProcessor {
 
 }
 ```
-<<<<<<< HEAD
-
-## Aggregate Metrics time series
-=======
 ## <mark>Third processor "Metrics Time Series Processor"
->>>>>>> 732ed980b7af1a8b88a07fda4fe4af84b4addb7e
 
 ตัวประมวลผลตัวที่สามมีหน้าที่ในการแปลงข้อมูลให้อยู่ในรูปแบบที่เข้ากันได้กับ Prometheus ซึ่งเป็นระบบเก็บข้อมูลเมตริกที่นิยมใช้ในงานตรวจสอบระบบ
 
