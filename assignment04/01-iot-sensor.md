@@ -15,7 +15,7 @@
 ## MQTT Topic
 
 > MQTT Topic = "iot-frames"
-> MQTT Topic = "iot-frames"
+
 
 ## MQTT Payload
 
