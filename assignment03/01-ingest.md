@@ -11,7 +11,7 @@ IoT Sensor 2 เป็น IoT ที่ได้มาจากการ compose
 เมื่อ Run ใน Local จะต้องแก้ไขไฟล์ pom.xml เพื่อจัดการ maven ให้ตรงกับ Architecture ของเครื่องของเรา
 
 ### pom.xml
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
