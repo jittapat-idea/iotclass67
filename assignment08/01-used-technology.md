@@ -8,13 +8,9 @@
 - Eclipse Paho MQTT Client
 - Kafka Connect
 - Kafka Rest Proxy
-- lombok
-- Jackson
-- NodeExporter (สำหรับ export machine metrics)
+- NodeExporter (วิเคราะห์การใช้งานทรัพยากรและประสิทธิภาพที่ container ใช้กับเครื่อง server)
 - kafka-exporter (สำหรับใช้งานกับ Prometheus)
 - Prometheus
 - Grafana (ร่วมกับ FlowCharting plugin)
 - Eclipse Mosquitto
 - MongoDB
-- Mongo DB Express (interface สำหรับการ visualize ข้อมูลใน Mongo DB)
-- Cadvisor (วิเคราะห์การใช้งานทรัพยากรและประสิทธิภาพที่ container ใช้กับเครื่อง server)
