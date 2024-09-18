@@ -255,3 +255,8 @@ docker compose restart grafana
 
 ![overall](./assets/overall.png)
 </br>
+
+### Node Exporter (Gateway System Utilization)
+
+![nodeExporter](./assets/nodeExporter.png)
+</br>
