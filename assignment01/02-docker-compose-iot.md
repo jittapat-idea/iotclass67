@@ -339,9 +339,6 @@ sh start_1kafka_service.sh
 ```
 kafka-connect     | Wed Sep 11 09:18:25 UTC 2024  Kafka Connect listener HTTP state:  000  (waiting for 200)
 ```
-### โดย start-service #0 นั้นมี Service ดังนี้
-* [zookeeper](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#apache-zookeeper) 
-* [kafka](https://github.com/PonMorin/iotclass67/blob/main/assignment00/architecture.md#apache-kafka)
 
 ## start-service #2
 >> อธิบายว่า  หน้าจอที่ 1 ที่ต้องเปิดใช้งาน มีการเปิด service อะไรบ้างใน docker
