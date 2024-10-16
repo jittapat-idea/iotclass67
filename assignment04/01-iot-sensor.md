@@ -6,7 +6,7 @@
 >> - Mosquitto ทำหน้าที่เป็น MQTT broker รับข้อมูลจากเซ็นเซอร์ IoT ที่ส่งมาผ่าน MQTT client
 >> - ข้อมูลที่ได้รับจะถูกส่งต่อไปยัง Kafka ผ่าน Kafka Connect โดยใช้ MQTT source connector ที่ถูกตั้งค่าให้รับข้อมูลจาก Mosquitto และส่งต่อไปยัง Kafka topic ที่ชื่อ "iot-frames"
 
-> Microsoft spring boot
+> spring boot
 >> - ใช้จำลองเซ็นเซอร์ IoT ไมโครเซอร์วิสเหล่านี้ใช้ Eclipse Paho MQTT Library เพื่อส่งข้อมูลเทเลเมทรี (เช่น อุณหภูมิ, ความชื้น, ความดัน, และความสว่าง) ไปยัง MQTT broker ชื่อว่า Eclipse Mosquitto
 > > - ข้อมูลจะถูกสร้างขึ้นทุกวินาที โดย Callable จะสร้าง payload ของข้อมูลเซ็นเซอร์จำลอง ทำการ serialize เป็น JSON และส่งไปยัง MQTT topic ผ่านไคลเอนต์ MQTT
 
